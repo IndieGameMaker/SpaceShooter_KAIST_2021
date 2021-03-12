@@ -20,7 +20,7 @@ public class PlayerCtrl : MonoBehaviour
         Debug.Log("v=" + v);
 
         //transform.position += new Vector3(0, 0, 0.1f);
-        transform.Translate(Vector3.forward * 0.1f); //Vector3.forward = Vector3(0, 0, 1) * 0.1f;
+        transform.Translate(Vector3.forward * v * 0.1f); 
 
         /* 
             정규화벡터(Normalized vector), 단위벡터(Unit Vector)
