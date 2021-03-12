@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
+    private Transform tr;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tr = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class PlayerCtrl : MonoBehaviour
         // transform.Translate(Vector3.right * h * 0.1f);
 
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
-        transform.Translate(moveDir * 0.1f);
+        tr.Translate(moveDir.normalized * Time.deltaTime * 5.0f);
 
         /* 
             정규화벡터(Normalized vector), 단위벡터(Unit Vector)
