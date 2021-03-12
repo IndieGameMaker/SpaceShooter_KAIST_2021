@@ -18,13 +18,9 @@ public class PlayerCtrl : MonoBehaviour
         float h = Input.GetAxis("Horizontal"); // -1.0f ~ 0.0f ~ +1.0f
         float v = Input.GetAxis("Vertical");   // -1.0f ~ 0.0f ~ +1.0f
 
-        Debug.Log("h=" + h);
-        Debug.Log("v=" + v);
-
-        // transform.position += new Vector3(0, 0, 0.1f);
-        // transform.Translate(Vector3.forward * v * 0.1f); 
-        // transform.Translate(Vector3.right * h * 0.1f);
-
+        //Debug.Log("h=" + h + " v=" + v); //Debug.LogFormat()
+        Debug.Log($"h={h} v={v}");  //문자열 치환
+        
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         tr.Translate(moveDir.normalized * Time.deltaTime * 5.0f);
 
