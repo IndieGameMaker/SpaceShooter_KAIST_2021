@@ -23,7 +23,7 @@ public class PlayerCtrl : MonoBehaviour
         float r = Input.GetAxis("Mouse X");
 
         //Debug.Log("h=" + h + " v=" + v); //Debug.LogFormat()
-        Debug.Log($"h={h} v={v}");  //문자열 치환
+        //Debug.Log($"h={h} v={v}");  //문자열 치환
         
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         tr.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
