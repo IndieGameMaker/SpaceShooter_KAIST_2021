@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
+    [SerializeField]
     private Transform tr;
     public float moveSpeed = 5.0f;
 
