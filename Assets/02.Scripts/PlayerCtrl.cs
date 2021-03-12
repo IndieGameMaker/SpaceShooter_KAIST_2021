@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     private Transform tr;
+    public float moveSpeed = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class PlayerCtrl : MonoBehaviour
         Debug.Log($"h={h} v={v}");  //문자열 치환
         
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
-        tr.Translate(moveDir.normalized * Time.deltaTime * 5.0f);
+        tr.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
 
         /* 
             정규화벡터(Normalized vector), 단위벡터(Unit Vector)
