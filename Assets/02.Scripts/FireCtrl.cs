@@ -10,11 +10,14 @@ public class FireCtrl : MonoBehaviour
     public AudioClip fireSfx;
 
     private new AudioSource audio;
+    [SerializeField]
+    private MeshRenderer muzzleFlash;
 
     // Start is called before the first frame update
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        muzzleFlash = firePos.GetComponentInChildren<MeshRenderer>();
     }
 
     void Update()
