@@ -18,6 +18,7 @@ public class FireCtrl : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         muzzleFlash = firePos.GetComponentInChildren<MeshRenderer>();
+        muzzleFlash.enabled = false;
     }
 
     void Update()
@@ -44,5 +45,16 @@ public class FireCtrl : MonoBehaviour
         muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, angle);// Quaternion.Euler(Vector3.forward * angle);
         float scale = Random.Range(1.0f, 3.0f);
         muzzleFlash.transform.localScale = Vector3.one * scale; //new Vector3(scale, scale, scale);
+
+        StartCoroutine(ShowMuzzleFlash());
+    }
+
+    IEnumerator ShowMuzzleFlash()
+    {
+        muzzleFlash.enabled = true;
+
+        yield return new WaitForSeconds(0.2f);
+
+        muzzleFlash.enabled = false;
     }
 }
