@@ -13,9 +13,12 @@ public class FireCtrl : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            //총알을 동적으로 생성
+            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        }        
     }
 }
