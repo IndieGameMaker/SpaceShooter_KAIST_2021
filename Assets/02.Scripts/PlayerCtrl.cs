@@ -49,8 +49,11 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if (h <= -0.1f)
         {
-            
+            anim.CrossFade("RunL", 0.25f);
         }
-
+        else
+        {
+            anim.CrossFade("Idle", 0.25f);
+        }
     }
 }
