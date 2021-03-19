@@ -6,6 +6,8 @@ public class PlayerCtrl : MonoBehaviour
 {
     [SerializeField]
     private Transform tr;
+    private Animation anim;
+
     public float moveSpeed = 10.0f;
     public float turnSpeed = 100.0f;
 
@@ -13,6 +15,8 @@ public class PlayerCtrl : MonoBehaviour
     void Start()
     {
         tr = GetComponent<Transform>();
+        anim = GetComponent<Animation>();
+        anim.Play("Idle");
     }
 
     // Update is called once per frame
@@ -29,15 +33,24 @@ public class PlayerCtrl : MonoBehaviour
         tr.Translate(moveDir.normalized * Time.deltaTime * moveSpeed);
         tr.Rotate(Vector3.up * Time.deltaTime * r * turnSpeed);
 
-        /* 
-            정규화벡터(Normalized vector), 단위벡터(Unit Vector)
-            Vector3.forward = Vector3(0,0,1)
-            Vector3.up      = Vector3(0,1,0)
-            Vector3.right   = Vector3(1,0,0)
-
-            Vector3.one     = Vector3(1,1,1)
-            Vector3.zero    = Vector3(0,0,0)
-        */
+        if (v >= 0.1f)
+        {
+            //전진 애니메이션 클립으로 변환
+            anim.CrossFade("RunF", 0.25f);
+        }
+        else if (v <= -0.1f)
+        {
+            //후진
+            anim.CrossFade("RunB", 0.25f);
+        }
+        else if (h >= 0.1f) //오른쪽 이동
+        {
+            anim.CrossFade("RunR", 0.25f);
+        }
+        else if (h <= -0.1f)
+        {
+            
+        }
 
     }
 }
